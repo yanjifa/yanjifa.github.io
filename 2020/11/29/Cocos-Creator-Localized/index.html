@@ -129,7 +129,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -489,7 +489,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-12-19T14:06:24.630Z" itemprop="dateUpdated">2020-12-19 22:06:24</time>
+    最終更新：<time datetime="2020-12-19T14:06:24.630Z" itemprop="dateUpdated">2020-12-19 22:06:24</time>
 </span><br>
 
 
@@ -581,35 +581,35 @@
 
 
 
-
-
-
-
-
-
-<section class="comments" id="comments">
-    <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
     <script>
-        var id = location.pathname
-        if (location.pathname.length > 50) {
-          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
-        }
-        const gitalk = new Gitalk({
-          clientID: '',
-          clientSecret: '',
-          repo: '',
-          owner: '',
-          admin: [''],
-          id: id,      // Ensure uniqueness and length less than 50
-          title: document.title.split('|')[0],
-          distractionFreeMode: false  // Facebook-like distraction free mode
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "vsSPrz1BRTehhx32ffeeJant-gzGzoHsz",
+            appKey: "XeeERqJ0K9eex8udkFCKQkHa",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
         })
-
-        gitalk.render('gitalk-container')
     </script>
-</section>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
 
 
 
@@ -635,7 +635,7 @@
 
         <p>
             
-            <span>This blog is licensed under a <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>このブログの内容物は<a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
         </p>
     </div>
     <div class="bottom">
